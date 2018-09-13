@@ -109,7 +109,7 @@ public class GoalService
 		if (logger.isDebugEnabled())
 			logger.debug("GoalService -> findAll FinservFinancialgoals");
 		
-		return finservfinancialgoalRepository.findbyOwner(owner);
+		return finservfinancialgoalRepository.findByOwner(owner);
 	}
 
 }
