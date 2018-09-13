@@ -20,7 +20,7 @@ import javax.persistence.*;
 /**
  * Persistent class for entity stored in table "finserv__financialgoal__c"
  *
- * @author Telosys Tools Generator
+ * @author Rodrigo Torres
  *
  */
 
@@ -48,20 +48,20 @@ public class Goal implements Serializable
     //----------------------------------------------------------------------    
 
     @Column(name="finserv__actualvalue__c")
-    private Double     finservActualvalueCustom ;
+    private Double     actualValue ;
 
 
     @Temporal(TemporalType.DATE)
     @Column(name="finserv__targetdate__c")
-    private Date       finservTargetdateCustom ;
+    private Date       targetDate ;
 
 
     @Column(name="finserv__targetvalue__c")
-    private Double     finservTargetvalueCustom ;
+    private Double     targetValue ;
 
 
     @Column(name="finserv__type__c", length=255)
-    private String     finservTypeCustom ;
+    private String     type ;
 
 
     @Column(name="name", length=80)
@@ -82,15 +82,15 @@ public class Goal implements Serializable
 
 
     @Column(name="finserv__status__c", length=255)
-    private String     finservStatusCustom ;
+    private String     status ;
 
 
     @Column(name="finserv__primaryowner__c", length=18)
-    private String     finservPrimaryownerCustom ;
+    private String     primaryOwner ;
 
 
     @Column(name="external_id__c", length=255)
-    private String     externalIdCustom ;
+    private String     externalId ;
 
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -129,16 +129,16 @@ public class Goal implements Serializable
 
     public Goal update(Goal a) {
 		this.id = a.id;
-        this.finservActualvalueCustom = a.finservActualvalueCustom;
-        this.finservTargetdateCustom = a.finservTargetdateCustom;
-        this.finservTargetvalueCustom = a.finservTargetvalueCustom;
-        this.finservTypeCustom = a.finservTypeCustom;
+        this.actualValue = a.actualValue;
+        this.targetDate = a.targetDate;
+        this.targetValue = a.targetValue;
+        this.type = a.type;
         this.name = a.name;
         this.isdeleted = a.isdeleted;
         this.systemmodstamp = a.systemmodstamp;
-        this.finservStatusCustom = a.finservStatusCustom;
-        this.finservPrimaryownerCustom = a.finservPrimaryownerCustom;
-        this.externalIdCustom = a.externalIdCustom;
+        this.status = a.status;
+        this.primaryOwner = a.primaryOwner;
+        this.externalId = a.externalId;
         this.createddate = a.createddate;
         this.sfid = a.sfid;
         this.hcLastop = a.hcLastop;
@@ -165,144 +165,6 @@ public class Goal implements Serializable
     // GETTERS & SETTERS FOR FIELDS
     //----------------------------------------------------------------------
     //--- DATABASE MAPPING : finserv__actualvalue__c ( float8 ) 
-    public void setFinservActualvalueCustom( Double finservActualvalueCustom )
-    {
-        this.finservActualvalueCustom = finservActualvalueCustom;
-    }
-    public Double getFinservActualvalueCustom()
-    {
-        return this.finservActualvalueCustom;
-    }
-
-    //--- DATABASE MAPPING : finserv__targetdate__c ( date ) 
-    public void setFinservTargetdateCustom( Date finservTargetdateCustom )
-    {
-        this.finservTargetdateCustom = finservTargetdateCustom;
-    }
-    public Date getFinservTargetdateCustom()
-    {
-        return this.finservTargetdateCustom;
-    }
-
-    //--- DATABASE MAPPING : finserv__targetvalue__c ( float8 ) 
-    public void setFinservTargetvalueCustom( Double finservTargetvalueCustom )
-    {
-        this.finservTargetvalueCustom = finservTargetvalueCustom;
-    }
-    public Double getFinservTargetvalueCustom()
-    {
-        return this.finservTargetvalueCustom;
-    }
-
-    //--- DATABASE MAPPING : finserv__type__c ( varchar ) 
-    public void setFinservTypeCustom( String finservTypeCustom )
-    {
-        this.finservTypeCustom = finservTypeCustom;
-    }
-    public String getFinservTypeCustom()
-    {
-        return this.finservTypeCustom;
-    }
-
-    //--- DATABASE MAPPING : name ( varchar ) 
-    public void setName( String name )
-    {
-        this.name = name;
-    }
-    public String getName()
-    {
-        return this.name;
-    }
-
-    //--- DATABASE MAPPING : isdeleted ( bool ) 
-    public void setIsdeleted( Boolean isdeleted )
-    {
-        this.isdeleted = isdeleted;
-    }
-    public Boolean getIsdeleted()
-    {
-        return this.isdeleted;
-    }
-
-    //--- DATABASE MAPPING : systemmodstamp ( timestamp ) 
-    public void setSystemmodstamp( Date systemmodstamp )
-    {
-        this.systemmodstamp = systemmodstamp;
-    }
-    public Date getSystemmodstamp()
-    {
-        return this.systemmodstamp;
-    }
-
-    //--- DATABASE MAPPING : finserv__status__c ( varchar ) 
-    public void setFinservStatusCustom( String finservStatusCustom )
-    {
-        this.finservStatusCustom = finservStatusCustom;
-    }
-    public String getFinservStatusCustom()
-    {
-        return this.finservStatusCustom;
-    }
-
-    //--- DATABASE MAPPING : finserv__primaryowner__c ( varchar ) 
-    public void setFinservPrimaryownerCustom( String finservPrimaryownerCustom )
-    {
-        this.finservPrimaryownerCustom = finservPrimaryownerCustom;
-    }
-    public String getFinservPrimaryownerCustom()
-    {
-        return this.finservPrimaryownerCustom;
-    }
-
-    //--- DATABASE MAPPING : external_id__c ( varchar ) 
-    public void setExternalIdCustom( String externalIdCustom )
-    {
-        this.externalIdCustom = externalIdCustom;
-    }
-    public String getExternalIdCustom()
-    {
-        return this.externalIdCustom;
-    }
-
-    //--- DATABASE MAPPING : createddate ( timestamp ) 
-    public void setCreateddate( Date createddate )
-    {
-        this.createddate = createddate;
-    }
-    public Date getCreateddate()
-    {
-        return this.createddate;
-    }
-
-    //--- DATABASE MAPPING : sfid ( varchar ) 
-    public void setSfid( String sfid )
-    {
-        this.sfid = sfid;
-    }
-    public String getSfid()
-    {
-        return this.sfid;
-    }
-
-    //--- DATABASE MAPPING : _hc_lastop ( varchar ) 
-    public void setHcLastop( String hcLastop )
-    {
-        this.hcLastop = hcLastop;
-    }
-    public String getHcLastop()
-    {
-        return this.hcLastop;
-    }
-
-    //--- DATABASE MAPPING : _hc_err ( text ) 
-    public void setHcErr( String hcErr )
-    {
-        this.hcErr = hcErr;
-    }
-    public String getHcErr()
-    {
-        return this.hcErr;
-    }
 
 
     //----------------------------------------------------------------------
@@ -317,13 +179,13 @@ public class Goal implements Serializable
         sb.append("["); 
         sb.append(id);
         sb.append("]:"); 
-        sb.append(finservActualvalueCustom);
+        sb.append(actualValue);
         sb.append("|");
-        sb.append(finservTargetdateCustom);
+        sb.append(targetDate);
         sb.append("|");
-        sb.append(finservTargetvalueCustom);
+        sb.append(targetValue);
         sb.append("|");
-        sb.append(finservTypeCustom);
+        sb.append(type);
         sb.append("|");
         sb.append(name);
         sb.append("|");
@@ -331,11 +193,11 @@ public class Goal implements Serializable
         sb.append("|");
         sb.append(systemmodstamp);
         sb.append("|");
-        sb.append(finservStatusCustom);
+        sb.append(status);
         sb.append("|");
-        sb.append(finservPrimaryownerCustom);
+        sb.append(primaryOwner);
         sb.append("|");
-        sb.append(externalIdCustom);
+        sb.append(externalId);
         sb.append("|");
         sb.append(createddate);
         sb.append("|");
@@ -345,6 +207,122 @@ public class Goal implements Serializable
         sb.append("|");
         sb.append(hcErr);
         return sb.toString(); 
-    } 
+    }
+
+	public Double getActualValue() {
+		return actualValue;
+	}
+
+	public void setActualValue(Double actualValue) {
+		this.actualValue = actualValue;
+	}
+
+	public Date getTargetDate() {
+		return targetDate;
+	}
+
+	public void setTargetDate(Date targetDate) {
+		this.targetDate = targetDate;
+	}
+
+	public Double getTargetValue() {
+		return targetValue;
+	}
+
+	public void setTargetValue(Double targetValue) {
+		this.targetValue = targetValue;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Boolean getIsdeleted() {
+		return isdeleted;
+	}
+
+	public void setIsdeleted(Boolean isdeleted) {
+		this.isdeleted = isdeleted;
+	}
+
+	public Date getSystemmodstamp() {
+		return systemmodstamp;
+	}
+
+	public void setSystemmodstamp(Date systemmodstamp) {
+		this.systemmodstamp = systemmodstamp;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getPrimaryOwner() {
+		return primaryOwner;
+	}
+
+	public void setPrimaryOwner(String primaryOwner) {
+		this.primaryOwner = primaryOwner;
+	}
+
+	public String getExternalId() {
+		return externalId;
+	}
+
+	public void setExternalId(String externalId) {
+		this.externalId = externalId;
+	}
+
+	public Date getCreateddate() {
+		return createddate;
+	}
+
+	public void setCreateddate(Date createddate) {
+		this.createddate = createddate;
+	}
+
+	public String getSfid() {
+		return sfid;
+	}
+
+	public void setSfid(String sfid) {
+		this.sfid = sfid;
+	}
+
+	public String getHcLastop() {
+		return hcLastop;
+	}
+
+	public void setHcLastop(String hcLastop) {
+		this.hcLastop = hcLastop;
+	}
+
+	public String getHcErr() {
+		return hcErr;
+	}
+
+	public void setHcErr(String hcErr) {
+		this.hcErr = hcErr;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	} 
 
 }

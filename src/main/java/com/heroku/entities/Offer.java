@@ -131,126 +131,6 @@ public class Offer implements Serializable
 	}
 
     //----------------------------------------------------------------------
-    // GETTER & SETTER FOR THE KEY FIELD
-    //----------------------------------------------------------------------
-    public void setId( Long id )
-    {
-        this.id = id ;
-    }
-    public Long getId()
-    {
-        return this.id;
-    }
-
-    //----------------------------------------------------------------------
-    // GETTERS & SETTERS FOR FIELDS
-    //----------------------------------------------------------------------
-    //--- DATABASE MAPPING : name ( varchar ) 
-    public void setName( String name )
-    {
-        this.name = name;
-    }
-    public String getName()
-    {
-        return this.name;
-    }
-
-    //--- DATABASE MAPPING : dkom__end_date__c ( date ) 
-    public void setDkomEndDateCustom( Date dkomEndDateCustom )
-    {
-        this.end = dkomEndDateCustom;
-    }
-    public Date getDkomEndDateCustom()
-    {
-        return this.end;
-    }
-
-    //--- DATABASE MAPPING : isdeleted ( bool ) 
-    public void setIsdeleted( Boolean isdeleted )
-    {
-        this.isdeleted = isdeleted;
-    }
-    public Boolean getIsdeleted()
-    {
-        return this.isdeleted;
-    }
-
-    //--- DATABASE MAPPING : systemmodstamp ( timestamp ) 
-    public void setSystemmodstamp( Date systemmodstamp )
-    {
-        this.systemmodstamp = systemmodstamp;
-    }
-    public Date getSystemmodstamp()
-    {
-        return this.systemmodstamp;
-    }
-
-    //--- DATABASE MAPPING : dkom__start_date__c ( date ) 
-    public void setDkomStartDateCustom( Date dkomStartDateCustom )
-    {
-        this.start = dkomStartDateCustom;
-    }
-    public Date getDkomStartDateCustom()
-    {
-        return this.start;
-    }
-
-    //--- DATABASE MAPPING : createddate ( timestamp ) 
-    public void setCreateddate( Date createddate )
-    {
-        this.createddate = createddate;
-    }
-    public Date getCreateddate()
-    {
-        return this.createddate;
-    }
-
-    //--- DATABASE MAPPING : dkom__tier__c ( float8 ) 
-    public void setDkomTierCustom( Double dkomTierCustom )
-    {
-        this.tier = dkomTierCustom;
-    }
-    public Double getDkomTierCustom()
-    {
-        return this.tier;
-    }
-
-    //--- DATABASE MAPPING : sfid ( varchar ) 
-    public void setSfid( String sfid )
-    {
-        this.sfid = sfid;
-    }
-    public String getSfid()
-    {
-        return this.sfid;
-    }
-
-    //--- DATABASE MAPPING : _hc_lastop ( varchar ) 
-    public void setHcLastop( String hcLastop )
-    {
-        this.hcLastop = hcLastop;
-    }
-    public String getHcLastop()
-    {
-        return this.hcLastop;
-    }
-
-    //--- DATABASE MAPPING : _hc_err ( text ) 
-    public void setHcErr( String hcErr )
-    {
-        this.hcErr = hcErr;
-    }
-    public String getHcErr()
-    {
-        return this.hcErr;
-    }
-
-
-    //----------------------------------------------------------------------
-    // GETTERS & SETTERS FOR LINKS
-    //----------------------------------------------------------------------
-
-    //----------------------------------------------------------------------
     // toString METHOD
     //----------------------------------------------------------------------
     public String toString() { 
@@ -278,6 +158,98 @@ public class Offer implements Serializable
         sb.append("|");
         sb.append(hcErr);
         return sb.toString(); 
-    } 
+    }
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Date getEnd() {
+		return end;
+	}
+
+	public void setEnd(Date end) {
+		this.end = end;
+	}
+
+	public Boolean getIsdeleted() {
+		return isdeleted;
+	}
+
+	public void setIsdeleted(Boolean isdeleted) {
+		this.isdeleted = isdeleted;
+	}
+
+	public Date getSystemmodstamp() {
+		return systemmodstamp;
+	}
+
+	public void setSystemmodstamp(Date systemmodstamp) {
+		this.systemmodstamp = systemmodstamp;
+	}
+
+	public Date getStart() {
+		return start;
+	}
+
+	public void setStart(Date start) {
+		this.start = start;
+	}
+
+	public Date getCreateddate() {
+		return createddate;
+	}
+
+	public void setCreateddate(Date createddate) {
+		this.createddate = createddate;
+	}
+
+	public Double getTier() {
+		return tier;
+	}
+
+	public void setTier(Double tier) {
+		this.tier = tier;
+	}
+
+	public String getSfid() {
+		return sfid;
+	}
+
+	public void setSfid(String sfid) {
+		this.sfid = sfid;
+	}
+
+	public String getHcLastop() {
+		return hcLastop;
+	}
+
+	public void setHcLastop(String hcLastop) {
+		this.hcLastop = hcLastop;
+	}
+
+	public String getHcErr() {
+		return hcErr;
+	}
+
+	public void setHcErr(String hcErr) {
+		this.hcErr = hcErr;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	} 
 
 }
