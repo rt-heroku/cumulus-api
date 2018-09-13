@@ -22,4 +22,7 @@ public interface GoalRepository extends JpaRepository<Goal, Long> {
 		Goal findBySfid(String sfid);
 */
 //	Goal findOne(long id);
+	
+	Iterable<Goal> findbyOwner(String owner);
+	
 }

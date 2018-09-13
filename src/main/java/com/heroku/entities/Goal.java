@@ -86,7 +86,7 @@ public class Goal implements Serializable
 
 
     @Column(name="finserv__primaryowner__c", length=18)
-    private String     primaryOwner ;
+    private String     owner ;
 
 
     @Column(name="external_id__c", length=255)
@@ -137,7 +137,7 @@ public class Goal implements Serializable
         this.isdeleted = a.isdeleted;
         this.systemmodstamp = a.systemmodstamp;
         this.status = a.status;
-        this.primaryOwner = a.primaryOwner;
+        this.owner = a.owner;
         this.externalId = a.externalId;
         this.createddate = a.createddate;
         this.sfid = a.sfid;
@@ -195,7 +195,7 @@ public class Goal implements Serializable
         sb.append("|");
         sb.append(status);
         sb.append("|");
-        sb.append(primaryOwner);
+        sb.append(owner);
         sb.append("|");
         sb.append(externalId);
         sb.append("|");
@@ -273,12 +273,12 @@ public class Goal implements Serializable
 		this.status = status;
 	}
 
-	public String getPrimaryOwner() {
-		return primaryOwner;
+	public String getOwner() {
+		return owner;
 	}
 
-	public void setPrimaryOwner(String primaryOwner) {
-		this.primaryOwner = primaryOwner;
+	public void setOwner(String owner) {
+		this.owner = owner;
 	}
 
 	public String getExternalId() {

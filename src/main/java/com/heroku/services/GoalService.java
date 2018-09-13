@@ -105,5 +105,12 @@ public class GoalService
 		return elementToDelete;
 	}
 
+	public Iterable<Goal>  findByOwner(String owner) {
+		if (logger.isDebugEnabled())
+			logger.debug("GoalService -> findAll FinservFinancialgoals");
+		
+		return finservfinancialgoalRepository.findbyOwner(owner);
+	}
+
 }
 

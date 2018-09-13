@@ -56,6 +56,24 @@ public class GoalRestController {
 		return responseMessage;
 	}
 
+	@RequestMapping(value="/owner/{owner}", method=RequestMethod.GET,
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public ResponseMessage getByOwner(@PathVariable String owner) {
+
+		if (logger.isDebugEnabled())
+			logger.debug("GoalService -> getPage");
+		
+		ResponseMessage responseMessage = new ResponseMessage();
+		try {
+			responseMessage.setData(goalService.findByOwner(owner));
+		} catch (Exception e) {
+			logger.error("FinservFinancialgoalController -> getAll", e);
+			responseMessage.setError(-1, "Unable to get page for Goal: " + e.getMessage());
+		}
+		return responseMessage;
+	}
+
 	@RequestMapping(value="/page", method=RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
