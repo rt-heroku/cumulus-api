@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databases defaultId="0" maxId="0">
+<db dialect="" driver="org.postgresql.Driver" id="0" isolationLevel="" name="POSTGRESQL" poolSize="1" typeName="" url="jdbc:postgresql://ec2-35-171-59-121.compute-1.amazonaws.com:5432/dmdscfr3biebr?sslmode=require">
+<property name="user" value="u8cg1h72ffcj5o"/>
+<property name="password" value="pae84b8f5d598161c94e9a6cf16850e0ffabe2bd74964878a5eebed1b4d1dd816"/>
+<metadata catalog="" schema="salesforce" table-name-exclude="^[_]\w*" table-name-include="" table-name-pattern="%" table-types="TABLE"/>
+</db>
+</databases>

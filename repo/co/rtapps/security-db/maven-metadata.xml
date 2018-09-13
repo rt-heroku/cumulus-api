@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>co.rtapps</groupId>
+  <artifactId>security-db</artifactId>
+  <versioning>
+    <release>0.1.0.RELEASE</release>
+    <versions>
+      <version>0.1.0.RELEASE</version>
+    </versions>
+    <lastUpdated>20180912013834</lastUpdated>
+  </versioning>
+</metadata>
