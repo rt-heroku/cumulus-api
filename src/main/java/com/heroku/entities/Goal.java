@@ -113,6 +113,8 @@ public class Goal implements Serializable
     @Column(name="_hc_err", length=2147483647)
     private String     hcErr        ;
 
+    @Column(name="goalid", nullable=false, length=50)
+    private String     goalid       ;
 
 
     //----------------------------------------------------------------------
@@ -324,5 +326,15 @@ public class Goal implements Serializable
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	} 
+	
+	   //--- DATABASE MAPPING : goalid ( varchar ) 
+    public void setGoalid( String goalid )
+    {
+        this.goalid = goalid;
+    }
+    public String getGoalid()
+    {
+        return this.goalid;
+    }
 
 }

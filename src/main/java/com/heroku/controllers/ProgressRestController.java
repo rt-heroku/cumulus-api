@@ -36,7 +36,7 @@ public class ProgressRestController {
 	 * READ METHODS
 	 */
 
-	@RequestMapping(value="/", method=RequestMethod.GET,
+	@RequestMapping(value= {"","/"}, method=RequestMethod.GET,
 			produces = {MediaType.APPLICATION_JSON_VALUE})
 	@ResponseBody
 	public ResponseMessage get() {
