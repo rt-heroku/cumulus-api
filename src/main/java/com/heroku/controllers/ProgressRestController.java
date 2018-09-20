@@ -67,7 +67,7 @@ public class ProgressRestController {
 	}
 
 	
-	@RequestMapping(value="/{owner}", method=RequestMethod.GET,
+	@RequestMapping(value="/{owner}/{status}", method=RequestMethod.GET,
 			produces = {MediaType.APPLICATION_JSON_VALUE})
 	@ResponseBody
 	public ResponseMessage getOne(@PathVariable String owner, @PathVariable String status) {
