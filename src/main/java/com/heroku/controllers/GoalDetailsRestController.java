@@ -27,7 +27,7 @@ import com.heroku.services.GoalDetailsService;
 
 @CrossOrigin
 @Controller
-@RequestMapping(value="/api/v1/goaldetails")
+@RequestMapping(value="/api/v1/details")
 public class GoalDetailsRestController {
 	
 	private static Logger logger = LoggerFactory.getLogger(GoalDetailsRestController.class);
@@ -45,87 +45,10 @@ public class GoalDetailsRestController {
 	public ResponseMessage getAll() {
 
 		ResponseMessage responseMessage = new ResponseMessage();
-		responseMessage.setError(-1, "Goal id and member id is needed ");
+		responseMessage.setError(-1, "Goal id is required ");
 
 		return responseMessage;
 	}
-
-	@RequestMapping(value="/page", method=RequestMethod.GET,
-			produces = MediaType.APPLICATION_JSON_VALUE)
-	@ResponseBody
-	public ResponseMessage getPage(@RequestParam int page, @RequestParam int records) {
-
-		if (logger.isDebugEnabled())
-			logger.debug("GoalDetailsService -> getPage");
-		
-		ResponseMessage responseMessage = new ResponseMessage();
-		try {
-			responseMessage.setData(goaldetailsService.findAll(page, records));
-		} catch (Exception e) {
-			logger.error("GoalDetailsController -> getPage", e);
-			responseMessage.setError(-1, "Unable to get page for GoalDetails: " + e.getMessage());
-		}
-		return responseMessage;
-		
-	}
-
-
-//	@RequestMapping(value="/count", method=RequestMethod.GET,
-//			produces = MediaType.APPLICATION_JSON_VALUE)
-//	@ResponseBody
-//	public ResponseMessage getCount() {
-//
-//		if (logger.isDebugEnabled())
-//			logger.debug("GoalDetailsService -> getAll");
-//		
-//		ResponseMessage responseMessage = new ResponseMessage();
-//		try {
-//			responseMessage.setData(goaldetailsService.count());
-//		} catch (Exception e) {
-//			logger.error("GoalDetailsController -> getAll", e);
-//			responseMessage.setError(-1, "Unable to get all GoalDetails: " + e.getMessage());
-//		}
-//		return responseMessage;
-//		
-//	}
-
-//	@RequestMapping(value="/page", method=RequestMethod.GET,
-//			produces = MediaType.APPLICATION_JSON_VALUE)
-//	@ResponseBody
-//	public ResponseMessage getPage(@RequestParam int page,@RequestParam int size) {
-//
-//		if (logger.isDebugEnabled())
-//			logger.debug("GoalDetailsService -> getPage(" + page + "," + size + ")");
-//		
-//		ResponseMessage responseMessage = new ResponseMessage();
-//		try {
-//			responseMessage.setData(goaldetailsService.getPage(page, size));
-//		} catch (Exception e) {
-//			logger.error("GoalDetailsController -> getAll", e);
-//			responseMessage.setError(-1, "Unable to get all GoalDetails: " + e.getMessage());
-//		}
-//		return responseMessage;
-//		
-//	}
-	
-//	@RequestMapping(value="/elements", method=RequestMethod.GET,
-//			produces = MediaType.APPLICATION_JSON_VALUE)
-//	@ResponseBody
-//	public ResponseMessage getDropDownElements() {
-//
-//		if (logger.isDebugEnabled())
-//			logger.debug("GoalDetailsService -> getDropDownElements");
-//		
-//		ResponseMessage responseMessage = new ResponseMessage();
-//		try {
-//			responseMessage.setData(goaldetailsService.getDropDownValues());
-//		} catch (Exception e) {
-//			logger.error("GoalDetailsController -> getDropDownElements", e);
-//			responseMessage.setError(-1, "Unable to getDropDownElements for GoalDetails: " + e.getMessage());
-//		}
-//		return responseMessage;
-//		
-//	}
 
 	@RequestMapping(value="/id/{id}", method=RequestMethod.GET,
 			produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
@@ -146,7 +69,7 @@ public class GoalDetailsRestController {
 		return responseMessage;
 	}
 
-	@RequestMapping(value="/{goal}", method=RequestMethod.GET,
+	@RequestMapping(value="/goal/{goal}", method=RequestMethod.GET,
 			produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 	@ResponseBody
 	public ResponseMessage getGoalDetails(@PathVariable String goal) {
