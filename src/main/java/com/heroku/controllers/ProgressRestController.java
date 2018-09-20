@@ -67,6 +67,25 @@ public class ProgressRestController {
 	}
 
 	
+	@RequestMapping(value="/{owner}", method=RequestMethod.GET,
+			produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ResponseBody
+	public ResponseMessage getOne(@PathVariable String owner, @PathVariable String status) {
+		if (logger.isDebugEnabled())
+			logger.debug("ProgressService -> findByOwnerAndStatus(" + owner + "," + status + ")");
+		ResponseMessage responseMessage = new ResponseMessage();
+		
+		try {
+			responseMessage.setData(progressService.findByOwnerAndStatus(owner, status));
+		} catch (Exception e) {
+			logger.error("ProgressController -> create", e);
+			responseMessage.setError(-1,
+					"Unable to bring Progress for (owner,status): " + owner + "," + status + ",Error:"  + e.getMessage());
+		}
+		
+		return responseMessage;
+	}
+
 	@ExceptionHandler(Exception.class)
 	public @ResponseBody
 	String handleException(Exception e, HttpServletResponse response) {
