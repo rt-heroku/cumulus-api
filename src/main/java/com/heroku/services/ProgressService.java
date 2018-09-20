@@ -52,6 +52,13 @@ public class ProgressService
 		return progressRepository.findByOwner(owner);
 		
 	}
+	public Iterable<Progress> findByOwnerAndStatus(String owner, String status){
+		if (logger.isDebugEnabled())
+			logger.debug("Retrieving Progress for owner:" + owner);
+		
+		return progressRepository.findByOwnerAndStatus(owner, status);
+		
+	}
 
 
 }

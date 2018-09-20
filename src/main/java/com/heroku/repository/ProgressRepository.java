@@ -23,5 +23,6 @@ public interface ProgressRepository extends PagingAndSortingRepository<Progress,
 */
 	
 	Iterable<Progress> findByOwner(String owner);
+	Iterable<Progress> findByOwnerAndStatus(String owner, String status);
 
 }

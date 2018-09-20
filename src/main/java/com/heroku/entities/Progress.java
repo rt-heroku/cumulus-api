@@ -17,6 +17,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.Immutable;
+
+
 /**
  * Persistent class for entity stored in table "progress"
  *
@@ -26,6 +29,8 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="progress", schema="public" )
+@Immutable
+
 // Define named queries here
 @NamedQueries ( {
   @NamedQuery ( name="Progress.countAll", query="SELECT COUNT(x) FROM Progress x" )
