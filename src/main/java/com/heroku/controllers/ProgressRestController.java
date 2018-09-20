@@ -36,6 +36,17 @@ public class ProgressRestController {
 	 * READ METHODS
 	 */
 
+	@RequestMapping(value="/", method=RequestMethod.GET,
+			produces = {MediaType.APPLICATION_JSON_VALUE})
+	@ResponseBody
+	public ResponseMessage get() {
+		ResponseMessage responseMessage = new ResponseMessage();
+		
+		responseMessage.setError(-1, "Unable to bring all data you need to specify an owner api/v1/progress/{owner}" ) ;
+		
+		return responseMessage;
+	}
+
 	@RequestMapping(value="/{owner}", method=RequestMethod.GET,
 			produces = {MediaType.APPLICATION_JSON_VALUE})
 	@ResponseBody

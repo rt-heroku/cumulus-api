@@ -59,7 +59,7 @@ public class Progress implements Serializable
     private Double     amount       ;
 
 
-    @Column(name="goals")
+    @Column(name="goals_count")
     private Long       count        ;
 
 
