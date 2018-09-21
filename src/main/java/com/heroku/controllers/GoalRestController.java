@@ -77,7 +77,7 @@ public class GoalRestController {
 		return responseMessage;
 	}
 	@RequestMapping(value="/details/{goal}", method=RequestMethod.GET,
-			produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+			produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public ResponseMessage getGoalDetails(@PathVariable String goal) {
 		if (logger.isDebugEnabled())
@@ -116,7 +116,7 @@ public class GoalRestController {
 
 
 	@RequestMapping(value="/{id}", method=RequestMethod.GET,
-			produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+			produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public ResponseMessage getOne(@PathVariable Long id) {
 		if (logger.isDebugEnabled())
