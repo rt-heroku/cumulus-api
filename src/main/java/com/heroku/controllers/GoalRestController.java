@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.heroku.model.ResponseMessage;
 import com.heroku.entities.Goal;
+import com.heroku.services.GoalDetailsService;
 import com.heroku.services.GoalService;
 
 @CrossOrigin
@@ -34,11 +35,13 @@ public class GoalRestController {
 	@Autowired
 	private GoalService goalService;
 		
+	@Autowired
+	private GoalDetailsService goaldetailsService;
 	/*
 	 * READ METHODS
 	 */
 
-	@RequestMapping(value="", method=RequestMethod.GET,
+	@RequestMapping(value= {"","/"}, method=RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public ResponseMessage getAll() {
@@ -73,6 +76,24 @@ public class GoalRestController {
 		}
 		return responseMessage;
 	}
+	@RequestMapping(value="/details/{goal}", method=RequestMethod.GET,
+			produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+	@ResponseBody
+	public ResponseMessage getGoalDetails(@PathVariable String goal) {
+		if (logger.isDebugEnabled())
+			logger.debug("GoalDetailsService -> getByOwnerAndGoal(" + goal + ")");
+		ResponseMessage responseMessage = new ResponseMessage();
+		
+		try {
+			responseMessage.setData(goaldetailsService.findByGoal(goal));
+		} catch (Exception e) {
+			logger.error("GoalDetailsController -> getByOwnerAndGoal", e);
+			responseMessage.setError(-1,
+					"Unable to create GoalDetails: " + goal + ",Error:"  + e.getMessage());
+		}
+		
+		return responseMessage;
+	}
 
 	@RequestMapping(value="/page", method=RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
@@ -93,63 +114,6 @@ public class GoalRestController {
 		
 	}
 
-
-//	@RequestMapping(value="/count", method=RequestMethod.GET,
-//			produces = MediaType.APPLICATION_JSON_VALUE)
-//	@ResponseBody
-//	public ResponseMessage getCount() {
-//
-//		if (logger.isDebugEnabled())
-//			logger.debug("GoalService -> getAll");
-//		
-//		ResponseMessage responseMessage = new ResponseMessage();
-//		try {
-//			responseMessage.setData(goalService.count());
-//		} catch (Exception e) {
-//			logger.error("FinservFinancialgoalController -> getAll", e);
-//			responseMessage.setError(-1, "Unable to get all Goal: " + e.getMessage());
-//		}
-//		return responseMessage;
-//		
-//	}
-
-//	@RequestMapping(value="/page", method=RequestMethod.GET,
-//			produces = MediaType.APPLICATION_JSON_VALUE)
-//	@ResponseBody
-//	public ResponseMessage getPage(@RequestParam int page,@RequestParam int size) {
-//
-//		if (logger.isDebugEnabled())
-//			logger.debug("GoalService -> getPage(" + page + "," + size + ")");
-//		
-//		ResponseMessage responseMessage = new ResponseMessage();
-//		try {
-//			responseMessage.setData(goalService.getPage(page, size));
-//		} catch (Exception e) {
-//			logger.error("FinservFinancialgoalController -> getAll", e);
-//			responseMessage.setError(-1, "Unable to get all Goal: " + e.getMessage());
-//		}
-//		return responseMessage;
-//		
-//	}
-	
-//	@RequestMapping(value="/elements", method=RequestMethod.GET,
-//			produces = MediaType.APPLICATION_JSON_VALUE)
-//	@ResponseBody
-//	public ResponseMessage getDropDownElements() {
-//
-//		if (logger.isDebugEnabled())
-//			logger.debug("GoalService -> getDropDownElements");
-//		
-//		ResponseMessage responseMessage = new ResponseMessage();
-//		try {
-//			responseMessage.setData(goalService.getDropDownValues());
-//		} catch (Exception e) {
-//			logger.error("FinservFinancialgoalController -> getDropDownElements", e);
-//			responseMessage.setError(-1, "Unable to getDropDownElements for Goal: " + e.getMessage());
-//		}
-//		return responseMessage;
-//		
-//	}
 
 	@RequestMapping(value="/{id}", method=RequestMethod.GET,
 			produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})

@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.heroku.entities.GoalDetails;
@@ -69,7 +68,7 @@ public class GoalDetailsRestController {
 		return responseMessage;
 	}
 
-	@RequestMapping(value="/goal/{goal}", method=RequestMethod.GET,
+	@RequestMapping(value="/details/{goal}", method=RequestMethod.GET,
 			produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 	@ResponseBody
 	public ResponseMessage getGoalDetails(@PathVariable String goal) {
