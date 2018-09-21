@@ -87,14 +87,13 @@ public class GoalRestController {
 		ResponseMessage responseMessage = new ResponseMessage();
 		
 		try {
-			goaldetailsService.findByGoal(goal);
+			return goaldetailsService.findByGoal(goal);
 		} catch (Exception e) {
 			logger.error("GoalDetailsController -> getByOwnerAndGoal", e);
 			responseMessage.setError(-1,
 					"Unable to create GoalDetails: " + goal + ",Error:"  + e.getMessage());
+			return responseMessage;
 		}
-		
-		return responseMessage;
 	}
 
 	@RequestMapping(value="/page", method=RequestMethod.GET,
