@@ -20,6 +20,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * Persistent class for entity stored in table "goal_details"
  *
@@ -58,7 +60,7 @@ public class GoalDetails implements Serializable
     @Column(name="date", nullable=false)
     private Date       date         ;
 
-
+    @JsonIgnore
     @Column(name="goalid", nullable=false, length=50)
     private String     goalid       ;
 
