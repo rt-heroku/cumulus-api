@@ -5,23 +5,25 @@
 
 package com.heroku.controllers;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
-import com.heroku.model.ResponseMessage;
 import com.heroku.entities.Goal;
+import com.heroku.entities.GoalDetails;
+import com.heroku.model.ResponseMessage;
 import com.heroku.services.GoalDetailsService;
 import com.heroku.services.GoalService;
 
@@ -79,13 +81,13 @@ public class GoalRestController {
 	@RequestMapping(value="/details/{goal}", method=RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public ResponseMessage getGoalDetails(@PathVariable String goal) {
+	public Object getGoalDetails(@PathVariable String goal) {
 		if (logger.isDebugEnabled())
 			logger.debug("GoalDetailsService -> getByOwnerAndGoal(" + goal + ")");
 		ResponseMessage responseMessage = new ResponseMessage();
 		
 		try {
-			responseMessage.setData(goaldetailsService.findByGoal(goal));
+			goaldetailsService.findByGoal(goal);
 		} catch (Exception e) {
 			logger.error("GoalDetailsController -> getByOwnerAndGoal", e);
 			responseMessage.setError(-1,
