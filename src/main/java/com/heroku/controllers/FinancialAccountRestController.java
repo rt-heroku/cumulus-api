@@ -36,7 +36,7 @@ public class FinancialAccountRestController {
 	 * READ METHODS
 	 */
 
-	@RequestMapping(value= {"", "/"}, method=RequestMethod.GET,
+	@RequestMapping(value= "", method=RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public ResponseMessage getAll() {
@@ -45,18 +45,14 @@ public class FinancialAccountRestController {
 			logger.debug("FinancialAccountService -> getPage");
 		
 		ResponseMessage responseMessage = new ResponseMessage();
-		try {
-			responseMessage.setData(financialaccountService.findAll());
-		} catch (Exception e) {
-			logger.error("FinancialAccountController -> getAll", e);
-			responseMessage.setError(-1, "Unable to get page for FinancialAccount: " + e.getMessage());
-		}
+		logger.info("FinancialAccountController -> getAll", "API needs owner as a parameter");
+		responseMessage.setError(-1, "API needs owner as a parameter /{owner}");
 		return responseMessage;
 	}
 
 	
 	@RequestMapping(value="/{owner}", method=RequestMethod.GET,
-			produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+			produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public ResponseMessage getAllSimpleData(@PathVariable String owner) {
 		if (logger.isDebugEnabled())
