@@ -71,6 +71,8 @@ public class FinancialAccountService
 				record.add(t);
 			}
 			
+			data.add(record);
+			
 		}
 		
 		return data;
