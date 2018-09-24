@@ -65,7 +65,7 @@ public class FinancialAccountService
 		for (FinancialAccount fa : accounts) {
 			
 			SimpleAccount record = new SimpleAccount(fa);
-			Iterable<Accounttransaction> transactions = accounttransactionRepository.findByFinancialAccount(fa.getAccountNumber());
+			Iterable<Accounttransaction> transactions = accounttransactionRepository.findByFinancialAccount(fa.getSfid());
 			
 			for (Accounttransaction t : transactions) {
 				record.add(t);
