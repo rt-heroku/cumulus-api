@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.heroku.entities.Goal;
-import com.heroku.entities.GoalDetails;
 import com.heroku.model.ResponseMessage;
 import com.heroku.services.GoalDetailsService;
 import com.heroku.services.GoalService;

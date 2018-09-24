@@ -26,6 +26,9 @@ public class FinancialAccountService
 	@Autowired
 	private FinancialAccountRepository financialaccountRepository;
 		
+//	@Autowired
+//	private AccounttransactionRepository accounttransactionRepository;
+
 	/*
 	 * READ methods
 	 */
@@ -44,15 +47,21 @@ public class FinancialAccountService
 		
 		return financialaccountRepository.findAll();
 	}
-/*
-	public FinancialAccount findBySfid(String financialaccount){
+
+	public Iterable<FinancialAccount> findByOwner(String owner){
 		if (logger.isDebugEnabled())
-			logger.debug("Retrieving FinancialAccount with sfid:" + financialaccount);
+			logger.debug("Retrieving FinancialAccount for owner:" + owner);
 		
-		return financialaccountRepository.findBySfid(financialaccount);
+		Iterable<FinancialAccount> accounts =  financialaccountRepository.findByOwner(owner);
+		
+//		for (FinancialAccount fa : accounts) {
+//			Iterable<Accounttransaction> trans = accounttransactionRepository.findByFinancialAccount(fa.getAccountNumber());
+//		}
+		
+		return accounts;
 		
 	}
-*/
+
 	public FinancialAccount get(Long id) {
 		if (logger.isDebugEnabled())
 			logger.debug("Retrieving FinancialAccount with id:" + id);
@@ -65,43 +74,6 @@ public class FinancialAccountService
 		return elementToGet;
 	}
 
-	public FinancialAccount create(FinancialAccount financialaccount) {
-
-		if (logger.isDebugEnabled())
-			logger.debug("FinancialAccountService -> create:" + financialaccount);
-			
-		return financialaccountRepository.save(financialaccount);
-	}
-
-	public FinancialAccount update(FinancialAccount financialaccount) {
-		
-		if (logger.isDebugEnabled())
-			logger.debug("FinancialAccountService -> create:" + financialaccount);
-
-		FinancialAccount elementToUpdate = financialaccountRepository.findById(financialaccount.getId()).get();
-		
-		if (elementToUpdate == null)
-			throw new FinancialAccountNotFoundException(financialaccount.getName());
-		
-		elementToUpdate.update(financialaccount);
-		financialaccountRepository.save(elementToUpdate);
-		
-		return elementToUpdate;
-	}
-
-	public FinancialAccount delete(Long id) {
-		if (logger.isDebugEnabled())
-			logger.debug("FinancialAccountService -> delete:" + id);
-
-		FinancialAccount elementToDelete = get(id);
-		
-		if (elementToDelete == null)
-			throw new FinancialAccountNotFoundException(id);
-		
-		financialaccountRepository.delete(elementToDelete);
-
-		return elementToDelete;
-	}
 
 }
 

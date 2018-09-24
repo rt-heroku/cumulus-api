@@ -26,7 +26,7 @@ import com.heroku.services.AccountService;
 
 @CrossOrigin
 @Controller
-@RequestMapping(value="/api/v1/accounts")
+@RequestMapping(value="/api/v1/sfaccounts")
 public class AccountRestController {
 	
 	private static Logger logger = LoggerFactory.getLogger(AccountRestController.class);

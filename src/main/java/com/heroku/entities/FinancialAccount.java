@@ -117,7 +117,7 @@ public class FinancialAccount implements Serializable
 
 
     @Column(name="finserv__primaryowner__c", length=18)
-    private String     primaryOwner ;
+    private String     owner ;
 
 
     @Column(name="cumulusbankdemo__primary_access__c", length=255)
@@ -192,7 +192,7 @@ public class FinancialAccount implements Serializable
         this.myCard = a.myCard;
         this.systemmodstamp = a.systemmodstamp;
         this.status = a.status;
-        this.primaryOwner = a.primaryOwner;
+        this.owner = a.owner;
         this.primaryAccess = a.primaryAccess;
         this.externalId = a.externalId;
         this.accountNumber = a.accountNumber;
@@ -384,13 +384,13 @@ public class FinancialAccount implements Serializable
     }
 
     //--- DATABASE MAPPING : finserv__primaryowner__c ( varchar ) 
-    public void setPrimaryOwner( String primaryOwner )
+    public void setOwner( String owner )
     {
-        this.primaryOwner = primaryOwner;
+        this.owner = owner;
     }
-    public String getPrimaryOwner()
+    public String getOwner()
     {
-        return this.primaryOwner;
+        return this.owner;
     }
 
     //--- DATABASE MAPPING : cumulusbankdemo__primary_access__c ( varchar ) 
@@ -528,7 +528,7 @@ public class FinancialAccount implements Serializable
         sb.append("|");
         sb.append(status);
         sb.append("|");
-        sb.append(primaryOwner);
+        sb.append(owner);
         sb.append("|");
         sb.append(primaryAccess);
         sb.append("|");

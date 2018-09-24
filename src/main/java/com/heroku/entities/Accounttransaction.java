@@ -112,7 +112,7 @@ public class Accounttransaction implements Serializable
 
 
     @Column(name="finserv__financialaccount__c", length=18)
-    private String     fnancialAccount ;
+    private String     financialAccount ;
 
 
     @Column(name="sfid", length=18)
@@ -160,7 +160,7 @@ public class Accounttransaction implements Serializable
         this.transactionStatus = a.transactionStatus;
         this.createddate = a.createddate;
         this.transactionDate = a.transactionDate;
-        this.fnancialAccount = a.fnancialAccount;
+        this.financialAccount = a.financialAccount;
         this.sfid = a.sfid;
         this.hcLastop = a.hcLastop;
         this.hcErr = a.hcErr;
@@ -326,13 +326,13 @@ public class Accounttransaction implements Serializable
     }
 
     //--- DATABASE MAPPING : finserv__financialaccount__c ( varchar ) 
-    public void setFnancialAccount( String fnancialAccount )
+    public void setFinancialAccount( String financialAccount )
     {
-        this.fnancialAccount = fnancialAccount;
+        this.financialAccount = financialAccount;
     }
-    public String getFnancialAccount()
+    public String getFinancialAccount()
     {
-        return this.fnancialAccount;
+        return this.financialAccount;
     }
 
     //--- DATABASE MAPPING : sfid ( varchar ) 
@@ -406,7 +406,7 @@ public class Accounttransaction implements Serializable
         sb.append("|");
         sb.append(transactionDate);
         sb.append("|");
-        sb.append(fnancialAccount);
+        sb.append(financialAccount);
         sb.append("|");
         sb.append(sfid);
         sb.append("|");

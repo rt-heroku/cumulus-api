@@ -21,5 +21,7 @@ public interface FinancialAccountRepository extends PagingAndSortingRepository<F
 /*
 		FinancialAccount findBySfid(String sfid);
 */
+	
+	Iterable<FinancialAccount> findByOwner(String owner);
 
 }

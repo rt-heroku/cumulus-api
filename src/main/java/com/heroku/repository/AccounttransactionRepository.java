@@ -22,4 +22,6 @@ public interface AccounttransactionRepository extends PagingAndSortingRepository
 		Accounttransaction findBySfid(String sfid);
 */
 
+	Iterable<Accounttransaction> findByFinancialAccount(String financialAccount);
+	
 }
