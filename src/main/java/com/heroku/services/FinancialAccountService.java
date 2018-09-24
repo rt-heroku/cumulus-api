@@ -5,6 +5,9 @@
 
 package com.heroku.services;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +16,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.heroku.entities.Accounttransaction;
 import com.heroku.entities.FinancialAccount;
 import com.heroku.exceptions.FinancialAccountNotFoundException;
+import com.heroku.model.SimpleAccount;
+import com.heroku.repository.AccounttransactionRepository;
 import com.heroku.repository.FinancialAccountRepository;
 
 @Service
@@ -26,8 +32,8 @@ public class FinancialAccountService
 	@Autowired
 	private FinancialAccountRepository financialaccountRepository;
 		
-//	@Autowired
-//	private AccounttransactionRepository accounttransactionRepository;
+	@Autowired
+	private AccounttransactionRepository accounttransactionRepository;
 
 	/*
 	 * READ methods
@@ -48,17 +54,26 @@ public class FinancialAccountService
 		return financialaccountRepository.findAll();
 	}
 
-	public Iterable<FinancialAccount> findByOwner(String owner){
+	public List<SimpleAccount> findByOwner(String owner){
 		if (logger.isDebugEnabled())
 			logger.debug("Retrieving FinancialAccount for owner:" + owner);
 		
 		Iterable<FinancialAccount> accounts =  financialaccountRepository.findByOwner(owner);
 		
-//		for (FinancialAccount fa : accounts) {
-//			Iterable<Accounttransaction> trans = accounttransactionRepository.findByFinancialAccount(fa.getAccountNumber());
-//		}
+		List<SimpleAccount> data = new ArrayList<SimpleAccount>();
 		
-		return accounts;
+		for (FinancialAccount fa : accounts) {
+			
+			SimpleAccount record = new SimpleAccount(fa);
+			Iterable<Accounttransaction> transactions = accounttransactionRepository.findByFinancialAccount(fa.getAccountNumber());
+			
+			for (Accounttransaction t : transactions) {
+				record.add(t);
+			}
+			
+		}
+		
+		return data;
 		
 	}
 
