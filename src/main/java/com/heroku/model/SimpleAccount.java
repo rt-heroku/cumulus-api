@@ -23,8 +23,8 @@ public class SimpleAccount {
 	
 	public SimpleAccount(FinancialAccount fa) {
 		transactions = new ArrayList<SimpleTransaction>();
-		this.balance = fa.getAvailableBalance();
-		this.type = fa.getAccountType();
+		this.balance = fa.getBalance();
+		this.type = fa.getFinservAccountType();
 		this.status = fa.getStatus();
 		this.name = fa.getName();
 		
@@ -81,6 +81,7 @@ public class SimpleAccount {
 
 	public void add(Accounttransaction t) {
 		SimpleTransaction st = new SimpleTransaction(t);
+		
 		
 		st.setAmount(t.getAmount());
 		st.setDate(t.getTransactionDate());
