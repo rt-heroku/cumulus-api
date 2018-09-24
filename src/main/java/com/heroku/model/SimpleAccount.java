@@ -88,6 +88,9 @@ public class SimpleAccount {
 		st.setStatus(t.getTransactionStatus());
 		st.setSubType(t.getTransactionSubType());
 		st.setType(t.getTransactionType());
+		
+		st.setDescription(t.getDescription());
+		
 		transactions.add(st);
 	}
 	

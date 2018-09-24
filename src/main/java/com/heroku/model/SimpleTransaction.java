@@ -11,6 +11,7 @@ public class SimpleTransaction {
 	private String status;
 	private Date date;
 	private Double amount;
+	private String description;
 	
 	public SimpleTransaction(){
 		super();
@@ -50,6 +51,14 @@ public class SimpleTransaction {
 	}
 	public void setAmount(Double amount) {
 		this.amount = amount;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	
