@@ -142,7 +142,7 @@ public class GoalRestController {
 	@ResponseBody
 	public ResponseMessage create(@RequestBody Goal element) {
 
-		if (logger.isDebugEnabled())
+//		if (logger.isDebugEnabled())
 			logger.debug("GoalService -> create:" + element);
 
 		ResponseMessage responseMessage = new ResponseMessage();

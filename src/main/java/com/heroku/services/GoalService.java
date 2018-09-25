@@ -69,9 +69,10 @@ public class GoalService
 
 	public Goal create(Goal finservfinancialgoal) {
 
-		if (logger.isDebugEnabled())
+//		if (logger.isDebugEnabled())
 			logger.debug("GoalService -> create:" + finservfinancialgoal);
-			
+		
+		
 		return finservfinancialgoalRepository.save(finservfinancialgoal);
 	}
 
